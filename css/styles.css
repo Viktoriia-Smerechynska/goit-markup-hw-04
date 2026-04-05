@@ -450,7 +450,7 @@ button {
 
 .footer-box {
   margin-right: 120px;
-  padding-bottom: 100px;
+
   max-width: 264px;
   box-sizing: border-box;
 }
@@ -472,10 +472,6 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
-}
-
-.social-box {
-  margin-right: 120px;
 }
 
 .footer-social-list {
