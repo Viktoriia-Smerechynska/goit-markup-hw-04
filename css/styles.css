@@ -38,6 +38,10 @@ a {
 
 .header {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow:
+    0 1px 6px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -52,12 +56,10 @@ button {
 }
 
 .header-link:hover,
-.header-link:focus {
-  color: #404bbf;
-}
-
+.header-link:focus,
 .contacts-list-link:hover,
-.contacts-list-link:focus {
+.contacts-list-link:focus,
+.header-link.current {
   color: #404bbf;
 }
 
@@ -102,6 +104,22 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #2e2f42;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-link.current {
+  position: relative;
+}
+
+.header-link.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #404bbf;
 }
 
 .contacts {
@@ -123,11 +141,20 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero {
   background-color: #2e2f42;
   border-bottom: 1px solid #e7e9fc;
+  background-image:
+    linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+    url(../images/people-office.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-container {
@@ -199,6 +226,19 @@ button {
   width: calc((100% - 72px) / 4);
 }
 
+.features-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 100px;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  width: 264px;
+  height: 112px;
+  background-color: #f4f4fd;
+  margin-bottom: 8px;
+}
+
 .features-title {
   font-weight: 500;
   font-size: 20px;
@@ -253,6 +293,31 @@ button {
   text-align: center;
 }
 
+.team-box-icons {
+  display: flex;
+  justify-content: center;
+  column-gap: 24px;
+  padding-top: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  fill: #f4f4fd;
+  border-radius: 50%;
+}
+
+.social-icons:hover,
+.social-icons:focus {
+  background-color: #404bbf;
+}
+
 .team-item-title {
   font-weight: 500;
   font-size: 20px;
@@ -276,6 +341,39 @@ button {
   padding-top: 120px;
   padding-bottom: 120px;
   box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+}
+
+.box-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-item:hover .overlay {
+  transform: translateY(0);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 360px;
+  height: 300px;
+  padding: 40px 32px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+
+  background-color: #4d5ae5;
+  color: #f4f4fd;
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: auto;
 }
 
 .portfolio-title {
@@ -312,6 +410,12 @@ button {
   padding: 32px 16px 32px 16px;
 }
 
+.portfolio-box:hover {
+  box-shadow:
+    0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
 .portfolio-item-text {
   font-weight: 400;
   font-size: 16px;
@@ -323,12 +427,15 @@ button {
 
 .footer {
   background-color: #2e2f42;
+}
 
-  align-items: center;
-  display: block;
+.footer .container {
+  display: flex;
+  align-items: baseline;
 }
 
 .footer-box {
+  margin-right: 120px;
   padding-top: 100px;
   padding-bottom: 100px;
   max-width: 264px;
@@ -352,4 +459,42 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
+}
+
+.social-box {
+  margin-right: 120px;
+}
+
+.footer-social-list {
+  display: flex;
+  padding-top: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.footer-social-box {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  fill: #f4f4fd;
+  border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social-icons:hover,
+.footer-social-icons:focus {
+  background-color: #31d0aa;
 }
