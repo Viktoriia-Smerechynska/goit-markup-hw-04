@@ -352,10 +352,6 @@ button {
   box-sizing: border-box;
 }
 
-.container {
-  position: relative;
-}
-
 .box-overlay {
   position: relative;
   overflow: hidden;
